@@ -14,6 +14,7 @@ class Character():
         self.changeY = changeY
         self.velocity = 1
         self.bullets = []
+        self.bullet_vel = 10
         self.targetX = targetX
         self.targetY = targetY
         self.angle = math.atan2(targetY - Y, targetY - X)
@@ -49,9 +50,9 @@ class Character():
         angle = math.atan2(dist_X, dist_Y)  * (180 / math.pi)
 
         rotated_image = pygame.transform.rotate(self.image, angle)
-        pygame.draw.line(screen, pygame.Color("red"), (self.X, self.Y), (mx, my))
+        #pygame.draw.line(screen, pygame.Color("red"), (self.X, self.Y), (mx, my))
         screen.blit(rotated_image, (self.X,self.Y))
-        pygame.draw.rect(screen,"red" , (self.rect))
+        # pygame.draw.rect(screen,"red" , (self.rect))
 
     def boundaries(self):
         if self.X <= 0:
@@ -75,7 +76,7 @@ class Character():
 
     def fire(self):
         mx, my = pygame.mouse.get_pos()
-        new_bullet = bullet('Assets/Bullet.png',(255, 0, 0),self.X,self.Y,self.velocity,self.angle,mx,my)
+        new_bullet = bullet('Assets/Bullet.png',(255, 0, 0),self.X+16,self.Y+16,self.bullet_vel,self.angle,mx,my)
         new_bullet.move()
         self.bullets.append(new_bullet)
         print('fire')

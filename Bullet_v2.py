@@ -10,8 +10,8 @@ class bullet():
         self.image = pygame.image.load(Image_path)
         self.rect = self.image.get_rect(center=(400, 300))
         self.colour = colour
-        self.posX = pos_X - 16
-        self.posY = pos_Y - 16
+        self.posX = pos_X
+        self.posY = pos_Y
         self.velocity = velocity
         self.player_angle = player_angle
         ##################################################

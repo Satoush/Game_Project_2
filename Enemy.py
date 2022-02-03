@@ -12,13 +12,13 @@ class enemy():
         self.velocity = 0.01
         self.num_of_enemies = 6
         self.rect = self.Image_path.get_rect(center = (self.X,self.Y))
-        print(self.rect)
+       #print(self.rect)
 
 
 
     def draw(self):
         screen.blit(self.Image_path, (self.X , self.Y))
-        pygame.draw.rect(screen, pygame.Color("red"), (self.rect))
+        #pygame.draw.rect(screen, pygame.Color("red"), (self.rect))
 
     # Adding basic movement towards player
     def move_to_player(self, PlayerX,PlayerY):
@@ -66,7 +66,7 @@ class enemy():
     def update(self,PlayerX,PlayerY):
         self.move_to_player(PlayerX,PlayerY)
         self.draw()
-        pygame.draw.rect(screen, pygame.Color("red"), (self.rect))
+
 
 
     @staticmethod
